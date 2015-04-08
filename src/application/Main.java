@@ -16,11 +16,13 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			this.primarystage = primaryStage;
+			primaryStage.setTitle("BobleSpillet 0.0000001");
 			BorderPane root = new BorderPane();
 			Scene scene = new Scene(root,800,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
-			this.primarystage = primaryStage;
+			
 			primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, stageKeyEventHandler);
 			primaryStage.setScene(scene);
 			primaryStage.show();
