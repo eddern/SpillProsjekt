@@ -7,9 +7,11 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Random;
 
+import javafx.animation.KeyValue;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
@@ -32,11 +34,11 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			this.primarystage = primaryStage;
-			primaryStage.setTitle("BobleSpillet 0.0000001");
+			primaryStage.setTitle("BobleSpillet 0.000001");
 			root = new Pane();
 			Scene scene = new Scene(root,800,600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			root.setCursor(Cursor.NONE);
+//			root.setCursor(Cursor.NONE);
 			
 			p = new Player();
 			root.getChildren().add(p);
@@ -46,6 +48,11 @@ public class Main extends Application {
 				addRandomBlob();
 			}
 			
+			root.getStyleClass().add("p");
+			GameSettings settings = new GameSettings();
+			
+			root.getChildren().add(settings);
+		
 			primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, stageKeyEventHandler);
 			primaryStage.addEventHandler(MouseEvent.MOUSE_MOVED, mouseMovedHandler);
 			primaryStage.setScene(scene);
@@ -56,8 +63,10 @@ public class Main extends Application {
 		}
 	}
 	
+	/* Adds a random blob to the stage
+	 */
 	private void addRandomBlob(){
-		int[] sizes = {5, 10, 15, 20};
+		int[] sizes = {5, 10, 15, 20, 30, 40, 50};
 		Random rand = new Random();
 		Color color = new Color(rand.nextDouble(), rand.nextDouble(), rand.nextDouble(), 1);
 		int size = sizes[rand.nextInt(4)];
