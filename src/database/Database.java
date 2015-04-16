@@ -50,6 +50,11 @@ public class Database
 		}
 	}
 	
+	/***
+	 * 
+	 * @param end int, how many records to fetch
+	 * @return Returns a ArrayList with the best score at index 0 decreasing
+	 */
 	public ArrayList<Score> getHighscoreList(int end) {
 		ArrayList<Score> scores = new ArrayList<>();
 		if(connect()) {
