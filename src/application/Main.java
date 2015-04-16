@@ -56,6 +56,7 @@ public class Main extends Application {
 			primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, stageKeyEventHandler);
 			primaryStage.addEventHandler(MouseEvent.ANY, mouseMovedHandler);
 			primaryStage.setScene(scene);
+			//primaryStage.setFullScreen(true);
 			primaryStage.show();
 			centerMouse();
 
@@ -75,7 +76,10 @@ public class Main extends Application {
 	private EventHandler stageKeyEventHandler = new EventHandler<KeyEvent>() {
 		@Override
 		public void handle(KeyEvent event) {
+			System.out.println(root.getWidth());
 			switch (event.getCode()) {
+			case ENTER:
+				primaryStage.setFullScreen(!primaryStage.isFullScreen());
 			case F11:
 				primaryStage.setFullScreen(!primaryStage.isFullScreen());
 				
