@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+
+import application.settings.GameSettings;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -17,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 
@@ -52,6 +55,8 @@ public class Main extends Application {
 			}));
 			addNew.setCycleCount(Timeline.INDEFINITE);
 			addNew.play();
+			
+			root.setCenter(new Pane(new GameSettings()));	//For å jobbe med innstillingene
 			
 			primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, stageKeyEventHandler);
 			primaryStage.addEventHandler(MouseEvent.ANY, mouseMovedHandler);
